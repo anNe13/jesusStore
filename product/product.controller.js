@@ -1,16 +1,16 @@
 angular.module("product").controller("productController",
-    ["$scope", "$routeParams", "productService", "$location", "$sce", function
+    ["$scope", "$routeParams", "productService", function
         ($scope, $routeParams, productService) {
 
-            productService.getProducts().then(function (response) {
+        productService.getProducts().then(function (response) {
 
-                $scope.products = response.data;}
+                $scope.products = response.data;
+            }
+        )
 
-            )
-
-            , function (errorResponse) {
-            console.log(errorResponse.message)
-        }
+         , function (errorResponse) {
+         console.log(errorResponse.message)
+         }
 
 
     }

@@ -1,12 +1,25 @@
 
+<div class="container-fluid">
     <div class="row-fluid" ng-controller="filterController" ng-model="filterpar">
 
-        <div class="col-md-4" ng-repeat="product in products | filter : checkFilter">
+        <div class="row">
+
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Sök produkt" ng-model="searchText" />
+
+
+
+                </div></div>
+
+
+            </br></br>
+
+        <div class="col-md-4" ng-repeat="product in products | filter : checkFilter | filter: {name: searchText}">
             <img ng-src="{{product.imageUrl}}">
             <p></br>{{product.name}}</p>
         </div>
+    </div>
+</div>
 
     </div>
-
-
-
+</div>

@@ -12,9 +12,13 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
             templateUrl     :   "product/product.template.html",
             controller      :   "productController"
     })
-       /* .when("/category/all", {
+        .when("/searchtxt/:searchTxt", {
             templateUrl     :   "product/product.template.html",
             controller      :   "productController"
+        })
+       /* .when("category/:categoryId/search/:searchTxt", {
+            templateUrl: "product/product.template.html",
+            controller: "productController"
         })*/
         .when("/products",{
             templateUrl     :   "product/product.template.html",
