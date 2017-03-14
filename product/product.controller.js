@@ -1,20 +1,23 @@
 angular.module("product").controller("productController",
-    [ "$scope", "$routeParams", "productService", "$location" ,function
-    ($scope, $routeParams, productService) {
-        $scope.categoryIdpar = $routeParams.categoryId;
+    ["$scope", "$routeParams", "productService", "$location", "$sce", function
+        ($scope, $routeParams, productService) {
 
-    productService.getProducts().then(function (response) {
-
-        $scope.products = response.data;
+        $scope.categoryId = $routeParams.categoryId;
 
 
+        productService.getProducts().then(function (response) {
+            $scope.products = response.data;
+
+        }),
+
+            productService.getProductBySearch().then(function (response) {
+                $scope.products = response.data;
+            })
+
+            , function (errorResponse) {
+            console.log(errorResponse.message)
+        }
 
 
-    })
-        , function (errorResponse) {
-        console.log(errorResponse.message)
     }
-
-
-}
-]);
+    ]);

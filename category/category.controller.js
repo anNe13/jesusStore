@@ -1,6 +1,10 @@
-angular.module("category").controller("categoryController", [ "$scope", "$routeParams","$location", "categoryService",function
-    ($scope, $routeParams, $location, categoryService) {
+angular.module("category").controller("categoryController", [ "$scope", "$routeParams","$location", "categoryService", "productService",function
+    ($scope, $routeParams, $location, categoryService, productService) {
 
+    productService.getProducts().then(function (response) {
+        $scope.products = response.data;
+
+    })
 
     categoryService.getCategories().then(function (response) {
         $scope.categories = response.data;
@@ -13,6 +17,9 @@ angular.module("category").controller("categoryController", [ "$scope", "$routeP
         $location.path("/category/" + id);
 
     };
+    $scope.allCatSelect = function () {
+        $location.path("/category/all")
+    }
 
 }
 ]);
