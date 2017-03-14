@@ -1,0 +1,76 @@
+body{
+    background-image: url("bg.jpg");
+    background-attachment: fixed;
+}
+.navbar-custom {
+    background-color: whitesmoke;
+    border-color: black;
+    background-repeat: no-repeat;
+}
+.nav-item {
+    font-family: "Verdana";
+    font-size: medium;
+    color: red;
+}
+.navbar-brand > img{
+    width: auto;
+    height: 30px;
+
+
+}
+html, body { height: 100%; }
+.navmenu {
+    border-radius: 10px;
+    border-color: #0f0f0f;
+    width: 17%;
+    background-color: whitesmoke;
+
+}
+
+
+.col-md-4 {
+    border-color: white;
+    border-radius: 10px;
+    border-color: #0f0f0f;
+    width: inherit;
+
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+
+
+
+}
+
+.col-md-4 > p {
+
+    background-color: #8c8c8c;
+    color: white;
+    font-family: "Berlin Sans FB";
+    text-align: center;
+    border-radius: 0px 0px 5px 5px ;
+
+    width: inherit;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.col-md-4 >img:hover{
+    box-shadow: 6px 7px 36px 6px rgba(255,255,255,1);
+
+}
+
+.col-md-4 > img {
+    border-radius: 5px 5px 0px 0px;
+    vertical-align: text-top;
+    display: block;
+   /* width:240px;
+    */
+    width: auto;
+    height: auto;
+    max-width: 299px;
+    border-style: dashed;
+
+    }
+
+
+

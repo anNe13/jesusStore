@@ -1,0 +1,11 @@
+
+    <div class="row-fluid">
+        <div class="col-md-4" ng-repeat="product in products |  filter : (!!categoryIdpar || undefined) && {categoryId : categoryIdpar}">
+            <img ng-src="{{product.imageUrl}}">
+            <p></br>{{product.name}}</p>
+        </div>
+
+    </div>
+
+
+

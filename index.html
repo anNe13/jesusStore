@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nackademin Webshop</title>
+    <base href="/">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style/myCss.css">
+
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/app.controller.js"></script>
+    <script src="app/app.service.js"></script>
+
+    <script src="category/category.module.js"></script>
+    <script src="category/category.controller.js"></script>
+    <script src="category/category.service.js"></script>
+
+    <script src="product/product.module.js"></script>
+    <script src="product/product.controller.js"></script>
+    <script src="product/product.service.js"></script>
+
+</head>
+<body>
+
+<div ng-app="app">
+    <div class="container">
+        <div class="row">
+
+            <nav class="navbar navbar-default navbar-custom">
+                <div class="container-fluid">
+                    <!--Home-->
+                    <div class="navbar-header">
+                        <a href="/" class="navbar-brand">v</a>
+                    </div>
+                    <!--menu items-->
+                    <div>
+                        <ul class="nav navbar-nav" bs-active-link>
+                            <li class="nav-item"><a href="/">Home</a></li>
+                            <li>
+                                <div ng-controller="categoryController">
+                               <span uib-dropdown on-toggle="toggled(open)">
+                                   <a href id="simple-dropdown" uib-dropdown-toggle>Kategorier <span
+                                           class="caret"></span></a>
+                                   <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                       <li ng-click="categoryClicked()"><a>Visa Alla</a></li>
+                              <li ng-repeat="category in categories" ng-click="categoryClicked(category.id)">
+                          <a href>{{ category.name }}</a>
+                        </li>
+                      </ul>
+                    </span>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+
+    <div ng-view>
+
+    </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
