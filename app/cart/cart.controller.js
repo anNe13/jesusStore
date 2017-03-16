@@ -1,3 +1,16 @@
-/**
- * Created by A on 2017-03-16.
- */
+angular.module("app").controller("cartController",
+    ["$scope","$rootScope", "$routeParams", "$location",  function
+        ($scope,$rootScope, $routeParams,  $location) {
+
+        $location.path("/category/all");
+
+        $scope.myCart = function () {
+
+            $location.path("/cart/" );
+        };
+
+
+
+
+    }
+    ]);

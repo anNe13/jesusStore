@@ -2,7 +2,6 @@ angular.module("app").controller("navController",
     ["$scope","$rootScope", "$routeParams", "$location",  function
         ($scope,$rootScope, $routeParams,  $location) {
 
-$location.path("/category/all");
 
         $scope.searchProduct = function () {
 

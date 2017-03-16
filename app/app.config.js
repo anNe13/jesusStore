@@ -2,7 +2,7 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
     $routeProvider
         .when("/", {
             templateUrl     :   "product/product.template.html",
-            controller      :   "productController"
+            controller      :   "startController"
         })
         .when("/categories", {
             templateUrl     :   "category/category.template.html",
@@ -15,6 +15,10 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
         .when("/product/:productId", {
             templateUrl:     "product/product-detail.template.html",
             controller:      "productDetailController",
+        })
+        .when("/cart", {
+            templateUrl     :   "app/cart/cart.template.html",
+            controller      :   "cartController"
         })
         .when("/products",{
             templateUrl     :   "product/product.template.html",
