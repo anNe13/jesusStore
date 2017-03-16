@@ -6,6 +6,7 @@ body{
     background-color: whitesmoke;
     border-color: black;
     background-repeat: no-repeat;
+    height: 40px;
 }
 .nav-item {
     font-family: "Verdana";
@@ -22,55 +23,92 @@ html, body { height: 100%; }
 .navmenu {
     border-radius: 10px;
     border-color: #0f0f0f;
-    width: 17%;
     background-color: whitesmoke;
 
 }
 
-
-.col-md-4 {
-    border-color: white;
-    border-radius: 10px;
-    border-color: #0f0f0f;
-    width: inherit;
-
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
-
+.col-md-3 {
 
 
 }
-
-.col-md-4 > p {
-
-    background-color: #8c8c8c;
-    color: white;
-    font-family: "Berlin Sans FB";
-    text-align: center;
+#productListInfo{
+    background-color: palevioletred;
+    color: black;
+    font-family: "Calibri";
+    font-size: large;
     border-radius: 0px 0px 5px 5px ;
 
-    width: inherit;
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
+
+
+
+  height: 100px;
+    width: 90%;
+
+
+}
+#price {
+
+    background-color: orange;
+    font-size: x-large;
+    border-radius: 0px 0px 5px 5px ;
+    margin-bottom: 10px;
+    bottom: 5px;
+    position: absolute;
+
 }
 
-.col-md-4 >img:hover{
+#productSquare > img:hover{
+
     box-shadow: 6px 7px 36px 6px rgba(255,255,255,1);
 
 }
-
-.col-md-4 > img {
-    border-radius: 5px 5px 0px 0px;
-    vertical-align: text-top;
+#productSquare{
     display: block;
-   /* width:240px;
-    */
+    max-width: 200px;
+    max-height: 300px;
     width: auto;
     height: auto;
-    max-width: 299px;
+    line-height: 110%;
+    margin-top: 40px;
+
+}
+.stock-icon{
+    margin-top: 150%;
+    margin-right: 150%;
+    position: absolute;
+    alignment: center;
+
+}
+
+.col-md-3 > img {
+    border-radius: 5px 5px 0px 0px;
+
+    display: block;
+    height: auto;
+
+    width: 90%;
     border-style: dashed;
 
     }
+#detailScreen{
+   width: auto;
+
+}
+#prodPic{
+
+    max-width: 500px;
+    max-height: 700px;
+    width: auto;
+    height: auto;
+}
 
 
-
+#prodInfo{
+    background-color: whitesmoke;
+    font-size: large;
+    word-break: keep-all;
+    font-family: "Berlin Sans FB";
+    opacity: 0.8;
+    filter:alpha(opacity=80);
+    margin-left: 40%;
+}

@@ -37,45 +37,50 @@
     <script src="product/filter.controller.js"></script>
     <script src="app/navcontroller.js"></script>
 
+    <script src="product/product-detail.controller.js"></script>
+
 </head>
-<body>
-
-<div ng-app="app">
-    <div class="container">
-        <div class="row">
-
-            <nav class="navbar navbar-default navbar-custom" ng-controller="navController">
-                <div class="container-fluid">
-                    <!--Home-->
-                    <div class="navbar-header">
-                        <a href="/" class="navbar-brand">v</a>
-                    </div>
-                    <!--menu items-->
-                    <div>
-                        <ul class="nav navbar-nav" bs-active-link>
-                            <li class="nav-item"><a href="/">Home</a></li>
-                            <li>
-                                <div ng-controller="categoryController">
-                               <span uib-dropdown on-toggle="toggled(open)">
-                                   <a href id="simple-dropdown" uib-dropdown-toggle>Kategorier <span
-                                           class="caret"></span></a>
-                                   <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                       <li ng-click="allCatSelect()"><a>Visa Alla</a></li>
-                              <li ng-repeat="category in categories" ng-click="categoryClicked(category.id)">
-                          <a href>{{ category.name }}</a>
-                        </li>
-                      </ul>
-                    </span>
-                                </div>
+<body >
 
 
+<div ng-app="app" class="container-fluid">
+
+    <nav class="navbar navbar-default" >
+        <div class="container-fluid">
+
+            <!-- skipar bran och kör items: -->
+            <div>
+                <ul class="nav navbar-nav" bs-active-link ng-controller="navController">
+                    <li ng-click="allCatSelect()"><a>Alla Produkter</a></li>
+                    <li uib-dropdown ng-controller="categoryController" >
+                        <a uib-dropdown-toggle>Kategorier<span class="caret"></span></a>
+                        <ul uib-dropdown-menu  >
+                            <li ng-repeat="category in categories" ng-click="categoryClicked(category.id)"><a>{{category.name}}</a></li>
                         </ul>
-                    </div>
-                </div>
-            </nav>
+                    </li>
+                </ul>
 
+                <ul class="nav navbar-nav navbar-right">
+
+                    <div class="input-group col-md-8" >
+                        <li class="nav-item form-inline" >
+                            <div id="custom-search-input">
+                                <input type="text" id="search" class="form-control nav-item" placeholder="Sök produkt" ng-model="searchBox"/>
+                            </div>
+                        </li>
+
+                    </div>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-click="myCart()"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+                </ul>
+
+
+
+            </div>
         </div>
-    </div>
+    </nav>
 
 
     <div ng-view>
@@ -84,8 +89,6 @@
 
 
 </div>
-
-
 
 
 </body>

@@ -1,13 +1,11 @@
-/**
- * Created by A on 2017-03-14.
- */
-angular.module("category").controller("navController",
-    ["$scope", "$routeParams", "$location",  function
-        ($scope,$routeParams,  $location) {
+angular.module("app").controller("navController",
+    ["$scope","$rootScope", "$routeParams", "$location",  function
+        ($scope,$rootScope, $routeParams,  $location) {
+
+$location.path("/category/all");
 
         $scope.searchProduct = function () {
 
-            var searchPath = $scope.searchBox;
             $location.path("/searchtxt/" + searchPath);
         };
 
@@ -21,5 +19,14 @@ angular.module("category").controller("navController",
         };
 
 
+        $scope.productClicked = function (id){
+            $location.path("/product/" + id);
+        };
+
+
+
+
+
     }
     ]);
+

@@ -1,8 +1,8 @@
 angular.module("app").config(["$routeProvider", "$locationProvider",  function ($routeProvider, $locationProvider) {
     $routeProvider
         .when("/", {
-            templateUrl :   "app/app.template.html",
-            controller  :   "appController"
+            templateUrl     :   "product/product.template.html",
+            controller      :   "productController"
         })
         .when("/categories", {
             templateUrl     :   "category/category.template.html",
@@ -12,14 +12,10 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
             templateUrl     :   "product/product.template.html",
             controller      :   "productController"
     })
-        .when("/searchtxt/:searchTxt", {
-            templateUrl     :   "product/product.template.html",
-            controller      :   "productController"
+        .when("/product/:productId", {
+            templateUrl:     "product/product-detail.template.html",
+            controller:      "productDetailController",
         })
-       /* .when("category/:categoryId/search/:searchTxt", {
-            templateUrl: "product/product.template.html",
-            controller: "productController"
-        })*/
         .when("/products",{
             templateUrl     :   "product/product.template.html",
             controller      :   "productController"
@@ -27,6 +23,9 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
         .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
+
+
+
 
 
 angular.module('app')

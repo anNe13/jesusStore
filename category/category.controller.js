@@ -7,7 +7,5 @@ angular.module("category").controller("categoryController", [
         $scope.categories = response.data;
     });
 
-    //$scope.categoryId = $routeParams.categoryId;
-
 }
 ]);

@@ -1,12 +1,10 @@
-angular.module("product").controller("filterController",
+angular.module("app").controller("filterController",
     ["$scope", "$routeParams",  function
         ($scope, $routeParams) {
 
-    $scope.filterpar = $routeParams.categoryId;
-    $scope.searchText = $scope.searchText;
-
+var cat =  $routeParams.categoryId;
     $scope.checkFilter = function (product) {
-        if ($scope.filterpar === "all"){
+        if (cat === "all"){
             return product.categoryId > 0;
 
         }
@@ -15,10 +13,12 @@ angular.module("product").controller("filterController",
         }
 
         else {
-            return product.categoryId === parseInt($scope.filterpar)
+            return product.categoryId === parseInt(cat)
         }
     }
 
 
     }
     ]);
+
+
