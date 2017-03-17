@@ -3,6 +3,10 @@ angular.module("app").controller("navController",
         ($scope,$rootScope, $routeParams,  $location) {
 
 
+        $scope.myCart = function () {
+            $location.path("/cart/");
+        };
+
         $scope.searchProduct = function () {
 
             $location.path("/searchtxt/" + searchPath);

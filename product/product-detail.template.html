@@ -28,7 +28,7 @@
         </tbody>
     </table>
 </br>
-    <button ng-if="product.unitsInStock > 0" type="button" class="btn btn-success btn-lg">Lägg till i varukorg</button>
+    <button ng-if="product.unitsInStock > 0" ng-click="addToCart(product)" type="button" class="btn btn-success btn-lg">Lägg till i varukorg</button>
 </div>
 
 </div>
