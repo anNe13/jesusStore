@@ -1,17 +1,23 @@
 angular.module("product").controller("productDetailController",
-    ["$scope", "$routeParams", "productService", function
+    ["$scope", "$routeParams", "productService",  function
         ($scope, $routeParams, productService) {
 
-        $scope.addToCart = function (product) {
-          /*  for (var i = 0 ; i<$scope.cartProducts.length ; i++ ){
-                $scope.cartProducts.push(product);
-                if ($scope.cartProducts[i].id = product.id){
-                    $scope.cartProducts[i].quantity ++;
-                    return;
-                }*/
-                $scope.cartProducts.push(product);
+        $scope.addToCart = function (inProduct) {
+            var alredyExistsAt = -1;
+            for (var i = 0; i < $scope.cartProducts.length; i++) {
+                if ($scope.cartProducts[i].id == inProduct.id) {
+                    alredyExistsAt = i;
+                }
+            }
+            if (alredyExistsAt != -1) {
+                console.log(alredyExistsAt);
+                $scope.cartProducts[alredyExistsAt].quantity++;
+            }
+            else {
+                inProduct.quantity = 1;
+                $scope.cartProducts.push(inProduct);
 
-            //}
+            }
 
 
         };

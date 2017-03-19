@@ -1,0 +1,1 @@
+angular.module("customer", ["ngAnimate", "ui.bootstrap", "ngRoute", "angular-cookies" , "customer"]);

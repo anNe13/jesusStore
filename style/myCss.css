@@ -1,5 +1,5 @@
 body{
-    background-image: url("bg.jpg");
+    background-image: url("bg2.jpg");
     background-attachment: fixed;
 }
 .navbar-custom {
@@ -7,6 +7,9 @@ body{
     border-color: black;
     background-repeat: no-repeat;
     height: 40px;
+}
+.dropdown-menu li:hover {
+    cursor: pointer;
 }
 .nav-item {
     font-family: "Verdana";
@@ -95,11 +98,15 @@ html, body { height: 100%; }
 
 }
 #prodPic{
-
+    max-width: 100%;
+    height: auto;
+    /*
     max-width: 500px;
     max-height: 700px;
     width: auto;
-    height: auto;
+    height: auto;*/
+    margin-right: 10%;
+
 }
 
 
@@ -110,7 +117,9 @@ html, body { height: 100%; }
     font-family: "Berlin Sans FB";
     opacity: 0.8;
     filter:alpha(opacity=80);
-    margin-left: 40%;
+    margin-left: inherit;
+    display: table;
+
 }
 
 .cart-table {

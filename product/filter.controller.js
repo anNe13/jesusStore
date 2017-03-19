@@ -4,12 +4,9 @@ angular.module("app").controller("filterController",
 
 var cat =  $routeParams.categoryId;
     $scope.checkFilter = function (product) {
-        if (cat === "all"){
+        if (cat === "all" || cat == undefined){
             return product.categoryId > 0;
 
-        }
-        else if($scope.searchpar != undefined){
-            return product.name = $scope.searchpar;
         }
 
         else {

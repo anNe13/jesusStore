@@ -1,1 +1,1 @@
-angular.module('category', ["ngAnimate", "ui.bootstrap", "ngRoute"]);
+angular.module('category', ["ngAnimate", "ui.bootstrap", "ngRoute", "angular-cookies"]);

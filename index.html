@@ -20,6 +20,7 @@
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
 
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
@@ -40,10 +41,21 @@
 
     <script src="product/product-detail.controller.js"></script>
 
-    <script src="app/cart/start.controller.js"></script>
+    <script src="app/cart/cart.module.js"></script>
     <script src="app/cart/cart.controller.js"></script>
     <script src="app/cart/cart.service.js"></script>
-    <script src="app/cart/cart.module.js"></script>
+
+    <script src="app/account/new-customer/customer.module.js"></script>
+    <script src="app/account/new-customer/customer.controller.js"></script>
+    <script src="app/account/new-customer/customer.service.js"></script>
+
+    <script src="app/account/login/login.module.js"></script>
+    <script src="app/account/login/login.controller.js"></script>
+    <script src="app/account/login/login.service.js"></script>
+
+    <script src="app/account/profile/profile.module.js"></script>
+    <script src="app/account/profile/profile.controller.js"></script>
+    <script src="app/account/profile/profile.service.js"></script>
 
 
 </head>
@@ -55,12 +67,11 @@
     <nav class="navbar navbar-default" >
         <div class="container-fluid">
 
-            <!-- skipar bran och kör items: -->
+            <a class="navbar-brand" href="/">JesusStore</a>
             <div>
-                <ul class="nav navbar-nav" bs-active-link ng-controller="navController">
-                    <li ng-click="allCatSelect()"><a>Alla Produkter</a></li>
+                <ul class="nav navbar-nav" ng-controller="navController">
                     <li uib-dropdown ng-controller="categoryController" >
-                        <a uib-dropdown-toggle>Kategorier<span class="caret"></span></a>
+                        <a uib-dropdown-toggle>Kategorier <span class="caret"></span></a>
                         <ul uib-dropdown-menu  >
                             <li ng-repeat="category in categories" ng-click="categoryClicked(category.id)"><a>{{category.name}}</a></li>
                         </ul>
@@ -72,7 +83,7 @@
                     <div class="input-group col-md-8" >
                         <li class="nav-item form-inline" >
                             <div id="custom-search-input">
-                                <input type="text" id="search" class="form-control nav-item" placeholder="Sök produkt" ng-model="searchBox"/>
+                                <input type="text" enter-search="categoryClicked()" class="form-control nav-item" placeholder="Sök produkt"  ng-model="searchBox"/>
                             </div>
                         </li>
 
@@ -80,8 +91,18 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-controller="navController">
+                    <li ng-click="amiloggedin()"> <a>check</a> </li>
                     <button><li ng-click="myCart()"><a><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li></button>
+                    <li ng-hide="amiloggedin()"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li ng-show="amiloggedin()" uib-dropdown >
+                        <a uib-dropdown-toggle><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul uib-dropdown-menu  >
+                            <li><a href="/profile"><span class="glyphicon glyphicon-cog"></span> Profil</a></li>
+                            <li ng-click="logout()"><a><span class="glyphicon glyphicon-log-out"></span> Logga ut</a></li>
+                        </ul>
+                    </li>
                 </ul>
+
 
 
 

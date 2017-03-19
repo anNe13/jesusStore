@@ -1,0 +1,1 @@
+angular.module("profile", ["ngAnimate", "ui.bootstrap", "ngRoute", "angular-cookies", "profile"]);

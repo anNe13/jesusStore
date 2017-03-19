@@ -1,10 +1,22 @@
-var productsInCart = [];
+angular.module("cart").controller("cartController",
+    ["cartService", "$scope", function
+        (cartService, $scope) {
 
-angular.module("app").controller("cartController",
-    ["$scope","$rootScope", "$routeParams", "$location",  function
-        ($scope,$rootScope, $routeParams,  $location) {
+        $scope.sum = cartService.getSum();
 
+        $scope.reduceItem = function (index) {
+            $scope.cartProducts[index].quantity--;
+            $scope.sum = cartService.getSum();
+        };
 
+        $scope.increaseItem = function (index) {
+            $scope.cartProducts[index].quantity++;
+            $scope.sum = cartService.getSum();
+        };
+        $scope.removeItem = function (index) {
+            $scope.cartProducts.splice(index, 1);
+            $scope.sum = cartService.getSum();
+        }
 
 
     }

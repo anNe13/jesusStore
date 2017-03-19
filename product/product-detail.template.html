@@ -1,9 +1,9 @@
 <div class="container-fluid" id="detailScreen">
-<div class="row-fluid" >
+<div class="row" >
 <div class="col-md-4"  >
 <img id="prodPic" ng-src="{{product.imageUrl}}">
 </div>
-<div  id="prodInfo">
+<div  id="prodInfo" class="col-md-5">
     <table class="table">
         <tbody>
         <tr>
@@ -31,5 +31,5 @@
     <button ng-if="product.unitsInStock > 0" ng-click="addToCart(product)" type="button" class="btn btn-success btn-lg">Lägg till i varukorg</button>
 </div>
 
-</div>
+</div></div>
 </div>

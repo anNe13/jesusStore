@@ -1,6 +1,7 @@
 angular.module("app").controller("navController",
-    ["$scope","$rootScope", "$routeParams", "$location",  function
-        ($scope,$rootScope, $routeParams,  $location) {
+    ["$scope","$rootScope", "$routeParams", "$location", "loginService",  function
+        ($scope,$rootScope, $routeParams,  $location, loginService) {
+
 
 
         $scope.myCart = function () {
@@ -17,14 +18,19 @@ angular.module("app").controller("navController",
             $location.path("/category/" + id);
 
         };
-        $scope.allCatSelect = function () {
-            $location.path("/category/all")
-        };
-
 
         $scope.productClicked = function (id){
             $location.path("/product/" + id);
         };
+
+        $scope.logout = function () {
+            loginService.logout();
+            $location.path("/");
+
+        }
+        $scope.amiloggedin = function () {
+            return loginService.getLoggedInStatus();
+        }
 
 
 

@@ -1,0 +1,38 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+
+
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Konto <small>  {{user.customerId}} </small></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Namn</th>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>{{user.address}} - {{user.city}} - {{user.postalCode}}</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Telefonnummer</th>
+                <td>{{user.phone}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>{{user.email}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+    </div>
+</div>

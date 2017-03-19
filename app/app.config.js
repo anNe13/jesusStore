@@ -2,7 +2,7 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
     $routeProvider
         .when("/", {
             templateUrl     :   "product/product.template.html",
-            controller      :   "startController"
+            controller      :   "productController"
         })
         .when("/categories", {
             templateUrl     :   "category/category.template.html",
@@ -20,39 +20,20 @@ angular.module("app").config(["$routeProvider", "$locationProvider",  function (
             templateUrl     :   "app/cart/cart.template.html",
             controller      :   "cartController"
         })
-        .when("/products",{
-            templateUrl     :   "product/product.template.html",
-            controller      :   "productController"
+        .when("/customer/new",{
+            templateUrl     :   "app/account/new-customer/new-customer.template.html",
+            controller      :   "customerController"
     })
+        .when("/login", {
+            templateUrl     :   "app/account/login/login.template.html",
+            controller      :   "loginController"
+        })
+        .when("/profile", {
+            templateUrl     :   "app/account/profile/profile.template.html",
+            controller      :   "profileController"
+        })
         .otherwise("/");
     $locationProvider.html5Mode(true);
 }]);
 
-
-
-
-
-angular.module('app')
-    .directive('bsActiveLink', ['$location', function ($location) {
-        return {
-            restrict: 'A', //use as attribute
-            replace: false,
-            link: function (scope, elem) {
-                //after the route has changed
-                scope.$on("$routeChangeSuccess", function () {
-                    var hrefs = ['/#' + $location.path(),
-                        '#' + $location.path(), //html5: false
-                        $location.path()]; //html5: true
-                    angular.forEach(elem.find('a'), function (a) {
-                        a = angular.element(a);
-                        if (-1 !== hrefs.indexOf(a.attr('href'))) {
-                            a.parent().addClass('active');
-                        } else {
-                            a.parent().removeClass('active');
-                        };
-                    });
-                });
-            }
-        }
-    }]);
 
