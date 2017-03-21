@@ -28,9 +28,7 @@ angular.module("app").controller("navController",
             $location.path("/");
 
         }
-        $scope.amiloggedin = function () {
-            return loginService.getLoggedInStatus();
-        }
+
 
 
 

@@ -1,1 +1,1 @@
-angular.module("product", ["ngAnimate", "ui.bootstrap", "angular-cookies" , "ngRoute", "product"]);
+angular.module("product", ["ngAnimate", "ui.bootstrap", "ngCookies" , "ngRoute", "product"]);

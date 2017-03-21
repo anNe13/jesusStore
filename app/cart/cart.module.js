@@ -1,4 +1,4 @@
 
-angular.module("cart", ["ngAnimate", "ui.bootstrap", "ngRoute", "angular-cookies"]);
+angular.module("cart", ["ngAnimate", "ui.bootstrap", "ngRoute", "ngCookies"]);
 
 

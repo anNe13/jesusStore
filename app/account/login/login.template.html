@@ -1,5 +1,5 @@
 <div class="jumbotron">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-hide="getLoggedInStatus()">
 
 
         <form name="form" role="form">
@@ -21,6 +21,9 @@
         </div>
     </br>
 <a href="/customer/new" >Ej registrerad?</a>
+
+
+        <h1 ng-show="loginFailed">Felaktig mail eller lösenord</h1>
     </div>
 </div>
 

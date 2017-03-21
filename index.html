@@ -57,6 +57,10 @@
     <script src="app/account/profile/profile.controller.js"></script>
     <script src="app/account/profile/profile.service.js"></script>
 
+    <script src="app/cart/order/confirm.module.js"></script>
+    <script src="app/cart/order/confirm.controller.js"></script>
+    <script src="app/cart/order/confirm.service.js"></script>
+
 
 </head>
 <body >
@@ -91,8 +95,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-controller="navController">
-                    <li ng-click="amiloggedin()"> <a>check</a> </li>
-                    <button><li ng-click="myCart()"><a><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li></button>
+                    <li ng-click="myCart()"><a><span class="glyphicon glyphicon-shopping-cart"></span>Kassa</a></li>
                     <li ng-hide="amiloggedin()"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <li ng-show="amiloggedin()" uib-dropdown >
                         <a uib-dropdown-toggle><span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>

@@ -1,8 +1,11 @@
 angular.module("profile").factory("profileService", [ "$http", function ($http) {
     return {
 
-        getUserInfo : function (id) {
-            return $http.get("http://nackbutik.azurewebsites.net/api/customer/", id);
+        getOrdersByCustomerId: function (customerId) {
+            return $http.get("http://nackbutik.azurewebsites.net/api/order?customerid=" + customerId);
+        },
+        getOrderById : function (id) {
+            return $http.get("http://nackbutik.azurewebsites.net/api/order/" + id)
         }
 
     };

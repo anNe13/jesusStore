@@ -1,11 +1,16 @@
-angular.module("app", ["ui.bootstrap", "ngRoute","angular-cookies", "cart","category", "product", "customer", "login", "profile"]);
+angular.module("app", ["ui.bootstrap", "ngRoute","ngCookies", "cart","category", "product", "customer", "login", "profile", "confirm"]);
 
 //angular.module("app", []);
 
-angular.module("app").run(function($rootScope) {
+angular.module("app").run(function($rootScope, $cookieStore, loginService) {
+
     $rootScope.cartProducts = [];
+    $rootScope.loggedInUserData = [];
+    $rootScope.userId = '';
+    $rootScope.loggedInStatus = false;
 
 
-
-
+    $rootScope.amiloggedin = function () {
+        return loginService.getLoggedInStatus();
+    }
 });

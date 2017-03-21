@@ -1,22 +1,49 @@
 angular.module("cart").controller("cartController",
-    ["cartService", "$scope", function
-        (cartService, $scope) {
+    ["cartService", "$scope", "$cookieStore", function
+        (cartService, $scope, $cookieStore) {
 
-        $scope.sum = cartService.getSum();
+        $scope.cartProducts = $cookieStore.get("cartProducts");
+       // var cart = $scope.cartProducts;
 
-        $scope.reduceItem = function (index) {
-            $scope.cartProducts[index].quantity--;
-            $scope.sum = cartService.getSum();
+        getSum = function () {
+            // $cookieStore.put("cartProducts", this.cartProducts);
+            //$scope.cartProducts = $cookieStore.get("cartProducts");
+            var cart = $scope.cartProducts;
+            if(angular.isUndefined(cart)){
+                cart = {};
+            }
+
+            var sum = 0;
+            for (var i = 0; i < cart.length; i++) {
+                sum += (cart[i].quantity * cart[i].price);
+
+            }
+            return sum;
         };
 
-        $scope.increaseItem = function (index) {
+        $scope.sum = getSum();
+
+        $scope.reduceItem = function(index) {
+            $scope.cartProducts[index].quantity--;
+            $cookieStore.put("cartProducts", this.cartProducts)
+            $scope.sum = getSum();
+        };
+
+        $scope.increaseItem =  function(index) {
             $scope.cartProducts[index].quantity++;
-            $scope.sum = cartService.getSum();
+            $cookieStore.put("cartProducts", this.cartProducts)
+            $scope.sum = getSum();
         };
         $scope.removeItem = function (index) {
             $scope.cartProducts.splice(index, 1);
-            $scope.sum = cartService.getSum();
-        }
+            $cookieStore.put("cartProducts", this.cartProducts)
+            $scope.sum = getSum();
+        };
+
+
+
+
+
 
 
     }

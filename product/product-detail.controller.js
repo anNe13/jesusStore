@@ -1,6 +1,6 @@
 angular.module("product").controller("productDetailController",
-    ["$scope", "$routeParams", "productService",  function
-        ($scope, $routeParams, productService) {
+    ["$scope", "$routeParams", "productService", "$cookieStore",  function
+        ($scope, $routeParams, productService, $cookieStore) {
 
         $scope.addToCart = function (inProduct) {
             var alredyExistsAt = -1;
@@ -19,9 +19,16 @@ angular.module("product").controller("productDetailController",
 
             }
 
+                var cookieCart = $scope.cartProducts;
+                $cookieStore.put("cartProducts", cookieCart);
+
+
+
+
 
         };
         var myProductId = $routeParams.productId;
+
         productService.getProductById(myProductId).then(function (response) {
 
                 $scope.product = response.data;
