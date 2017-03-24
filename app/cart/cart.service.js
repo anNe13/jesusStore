@@ -1,25 +1,28 @@
+angular.module("cart").factory("cartService", ["$cookieStore", function ($cookieStore) {
 
-angular.module("cart").factory("cartService", [ "$cookieStore", function ($cookieStore) {
 
+    return {
 
-return{
+        getSum: function () {
+            var cart = $cookieStore.get("cartProducts");
+            var sum = 0;
+            angular.forEach(cart, function (c) {
+                sum += (c.quantity*c.price);
+            });
+            return sum;
+        },
 
-    getSum : function () {
-        var cart = $cookieStore.get("cartProducts", this.cartProducts);
-        var sum = 0;
-        for (var i = 0; i < cart.length; i++) {
-            sum += (cart[i].quantity * cart[i].price);
-            console.log(cart[i].price);
+        getAmount: function () {
+            var cart = $cookieStore.get("cartProducts");
+            var amount = 0;
+            angular.forEach(cart, function (c) {
+                amount += c.quantity;
+            });
+            return amount;
         }
-        return sum;
-    },
 
 
-
-
-
-}
-
+    }
 
 
 }]);

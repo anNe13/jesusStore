@@ -1,1 +1,1 @@
-angular.module("customer", ["ngAnimate", "ui.bootstrap", "ngRoute", "ngCookies" , "customer"]);
+angular.module("edit", ["ngAnimate", "ui.bootstrap", "ngRoute", "ngCookies", "edit"]);

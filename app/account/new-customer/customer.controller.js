@@ -1,30 +1,32 @@
 angular.module("customer").controller("customerController", [
-    "$scope", "$routeParams","$location", "customerService", function
+    "$scope", "$routeParams", "$location", "customerService", function
         ($scope, $routeParams, $location, customerService) {
 
-        $scope.regUser = function() {
-            var newCustomer = {
+        $scope.regUser = function (isValid) {
 
-                firstName: $scope.customer.firstName,
-                lastName: $scope.customer.lastName,
-                email: $scope.customer.email,
-                phone: $scope.customer.phone,
-                password: $scope.customer.password,
-                address: $scope.customer.address,
-                postalCode: $scope.customer.postalCode,
-                city: $scope.customer.city
-                //role: "Customer"
+            if (!isValid) {
+                $scope.isNotValid = true;
+            }
+            else {
 
+                var newCustomer = {
 
-            };console.log(newCustomer.firstName + " " + newCustomer.password);
+                    firstName: $scope.customer.firstName,
+                    lastName: $scope.customer.lastName,
+                    email: $scope.customer.email,
+                    phone: $scope.customer.phone,
+                    password: $scope.customer.password,
+                    address: $scope.customer.address,
+                    postalCode: $scope.customer.postalCode,
+                    city: $scope.customer.city
 
-            customerService.createAccount(newCustomer).then(function () {
+                };
+                customerService.createAccount(newCustomer).then(function () {
+                    $location.path("/login");
 
-                $location.path("/login");
+                });
+            }
 
-            });
         }
-
-
     }
 ]);

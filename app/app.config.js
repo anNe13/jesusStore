@@ -25,17 +25,20 @@ angular.module("app").config(["$routeProvider", "$locationProvider", function ($
             controller: "loginController"
         })
         .when("/profile", {
-            templateUrl :   "app/account/profile/profile.template.html",
-            controller :    "profileController"
-
+            templateUrl: "app/account/profile/profile.template.html",
+            controller: "profileController"
         })
         .when("/confirm", {
-            templateUrl :   "app/cart/order/confirm.template.html",
-            controller :    "confirmController"
+            templateUrl: "app/cart/order/confirm.template.html",
+            controller: "confirmController"
         })
         .when("/thanxmate", {
-            templateUrl :   "app/cart/order/thanxmate.html",
-            controller :    "confirmController"
+            templateUrl: "app/cart/order/thanxmate.html",
+            controller: "confirmController"
+        })
+        .when("/edit", {
+            templateUrl: "app/account/edit-customer/edit-customer.template.html",
+            controller: "editController"
         })
         .otherwise("/");
     $locationProvider.html5Mode(true);

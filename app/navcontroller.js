@@ -1,7 +1,6 @@
 angular.module("app").controller("navController",
-    ["$scope","$rootScope", "$routeParams", "$location", "loginService",  function
-        ($scope,$rootScope, $routeParams,  $location, loginService) {
-
+    ["$scope","$rootScope", "$routeParams", "$location", "loginService", "cartService",  function
+        ($scope,$rootScope, $routeParams,  $location, loginService, cartService) {
 
 
         $scope.myCart = function () {

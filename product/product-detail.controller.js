@@ -1,8 +1,11 @@
 angular.module("product").controller("productDetailController",
     ["$scope", "$routeParams", "productService", "$cookieStore",  function
         ($scope, $routeParams, productService, $cookieStore) {
-
+if(angular.isDefined($cookieStore.get("cartProducts"))) {
+    $scope.cartProducts = $cookieStore.get("cartProducts");
+}
         $scope.addToCart = function (inProduct) {
+
             var alredyExistsAt = -1;
             for (var i = 0; i < $scope.cartProducts.length; i++) {
                 if ($scope.cartProducts[i].id == inProduct.id) {

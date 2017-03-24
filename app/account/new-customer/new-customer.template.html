@@ -1,34 +1,49 @@
 <div class="jumbotron">
-<div class="container-fluid">
-    <form>
-
-        <div class="form-group row">
-            <div class="col-md-6"><label>Förnamn</label><input type="text" class="form-control" ng-model="customer.firstName" placeholder="Förnamn"></div>
-            <div class="col-md-6"><label>Efternamn</label><input type="text" class="form-control" ng-model="customer.lastName" placeholder="Efternamn"></div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-md-6"><label>Adress</label><input type="text" class="form-control" ng-model="customer.address" placeholder="Address"></div>
-            <div class="col-md-6"><label>Postnummer</label><input type="text" class="form-control" ng-model="customer.postalCode" placeholder="Postnummer"></div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-md-6"><label>Ort</label><input type="text" class="form-control" ng-model="customer.city" placeholder="Ort"></div>
-            <div class="col-md-6"><label>Telefonnummer</label><input type="text" class="form-control" ng-model="customer.phone" placeholder="Telefonnummer"></div>
-        </div>
-
-
-        <div class="form-group row">
-            <div class="col-md-6"><label>Email</label><input type="email" class="form-control" ng-model="customer.email" placeholder="Email"></div>
-            <div class="col-md-6"><label>Lösenord</label><input type="password" class="form-control" ng-model="customer.password" placeholder="Lösenord"></div>
+    <div class="container-fluid">
+        <form name="f" novalidate>
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Förnamn</label>
+                    <input ng-class="{'has-error': f.firstName.$invalid && !f.firstName.$pristine}" name="firstName"
+                           type="text" value="" class="form-control" ng-model="customer.firstName" placeholder="Förnamn"
+                           required></div>
+                <div class="col-md-6 form-group"><label>Efternamn</label>
+                    <input ng-class="{'has-error': f.lastName.$invalid && !f.lastName.$pristine}" name="lastName"
+                           type="text" class="form-control" ng-model="customer.lastName" placeholder="Efternamn"
+                           required></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Adress</label>
+                    <input ng-class="{'has-error': f.address.$invalid && !f.address.$pristine}" name="address"
+                           type="text" class="form-control" ng-model="customer.address" placeholder="Address" required>
+                </div>
+                <div class="col-md-6 form-group"><label>Postnummer</label>
+                    <input ng-class="{'has-error': f.postalCode.$invalid && !f.postalCode.$pristine}" name="postalCode"
+                           type="text" class="form-control" ng-model="customer.postalCode" placeholder="Postnummer"
+                           required></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Ort</label>
+                    <input ng-class="{'has-error': f.city.$invalid && !f.city.$pristine}" name="city" type="text"
+                           class="form-control" ng-model="customer.city" placeholder="Ort" required></div>
+                <div class="col-md-6 form-group"><label>Telefonnummer</label>
+                    <input ng-class="{'has-error': f.phone.$invalid && !f.phone.$pristine}" name="phone" type="text"
+                           class="form-control" ng-model="customer.phone" placeholder="Telefonnummer" required></div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Email</label>
+                    <input ng-class="{'has-error': f.email.$invalid && !f.email.$pristine}" name="email" type="email"
+                           class="form-control" ng-model="customer.email" placeholder="Email" required></div>
+                <div class="col-md-6 form-group"><label>Lösenord</label>
+                    <input ng-class="{'has-error': f.password.$invalid && !f.password.$pristine}" name="password"
+                           type="password" class="form-control" ng-model="customer.password" placeholder="Lösenord"
+                           required></div>
+                <p ng-show="f.email.$invalid && !f.email.$pristine" class="help-block">Ange en giltig email</p>
             </div>
 
 
+            <p ng-show="isNotValid && f.$invalid" class="help-block">Alla fält måste fyllas i</p>
+            <button ng-click="regUser(f.$valid)" type="submit" class="btn btn-primary">Registrera</button>
 
-
-                <button ng-click="regUser()" type="submit" class="btn btn-primary">Registrera</button>
-
-
-    </form>
-</div>
+        </form>
+    </div>
 </div>

@@ -17,8 +17,8 @@
         </tr>
         <tr>
             <th>Antal i lager</th>
-            <td><span ng-if="product.unitsInStock > 0" style="color: darkgreen">{{product.unitsInStock}}</span></td>
-            <td><span ng-if="product.unitsInStock <= 0" style="color: crimson">{{product.unitsInStock}}</span></td>
+            <td><span ng-if="product.unitsInStock > 0" style="color: darkgreen">{{product.unitsInStock-product.quantity}}</span></td>
+            <td><span ng-if="product.unitsInStock <= 0 && product.quantity >= product.unitsInStock" style="color: crimson">Ej i lager</span></td>
         </tr>
         <tr>
             <th>Pris</th>
@@ -28,7 +28,7 @@
         </tbody>
     </table>
 </br>
-    <button ng-if="product.unitsInStock > 0" ng-click="addToCart(product)" type="button" class="btn btn-success btn-lg">Lägg till i varukorg</button>
+    <button ng-disabled="product.quantity >= product.unitsInStock" ng-if="product.unitsInStock > 0" ng-click="addToCart(product)" type="button" class="btn btn-success btn-lg">Lägg till i varukorg</button>
 </div>
 
 </div></div>

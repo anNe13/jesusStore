@@ -1,23 +1,25 @@
 <div class="jumbotron">
     <div class="container-fluid">
 
+        <a href="/edit" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
 
         <table class="table table-sm">
             <thead>
             <tr>
-                <th>Konto <small>  {{user.customerId}} </small></th>
+                <th>Kund-id: <small> {{user.customerId}}</small>
+                </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <th scope="row">Namn</th>
+                <th scope="row">Namn HOLA</th>
                 <td>{{user.firstName}} {{user.lastName}}</td>
-
             </tr>
             <tr>
                 <th scope="row">Address</th>
                 <td>{{user.address}} - {{user.city}} - {{user.postalCode}}</td>
-
             </tr>
             <tr>
                 <th scope="row">Telefonnummer</th>
@@ -29,73 +31,63 @@
             </tr>
             </tbody>
         </table>
+    </div>
+</div>
 
 
-    </div></div>
-
-
-
-
-<div ng-show="hasOrderHistory" class="jumbotron">
-
+<div ng-show="hasOrderHistory" class="jumbotron" ng-controller="orderInfoController">
     <div class="container-fluid">
-
         <div class="col-xs-6">
             <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Order id</th>
-                    <th>Datum</th>
-
-                </tr>
-                </thead>
-                <tbody  ng-repeat="order in orders" ng-click="moreInfo(order.id)">
-                <tr>
-                    <td>{{order.id}}</td>
-                    <td>{{order.dateTime |  date : "MMMM d, y"}}</td>
-                    <td><span class="glyphicon glyphicon-info-sign"></span></td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-hover orderlist-table">
+                    <thead>
+                    <tr>
+                        <th>Order id</th>
+                        <th>Datum</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="order in orders" ng-class="{'selected':$index == selectedRow}"
+                           ng-click="moreInfo(order.id, $index)">
+                    <tr>
+                        <td>{{order.id}}</td>
+                        <td>{{order.dateTime | date : "MMMM d, y"}}</td>
+                        <td><span class="glyphicon glyphicon-info-sign"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
-
-
-
 
         <div ng-hide="moreInfoClicked">
             <div class="col-xs-6 order-info">
                 <div class="table-responsive">
-            <table class="table table-inverse">
-            <thead>
-            <tr>
-                <th>Namn</th>
-                <th>Antal</th>
-                <th>Pris</th>
-            </tr>
-            </thead>
-            <tbody ng-repeat="row in orderArray" >
-            <tr>
-                <th>{{row.name}}</th>
-                <td>{{row.quantity}}</td>
-                <th>{{row.price}} /st</th>
-
-            </tr>
-
-            </tbody>
-            </table>
-        </div>
+                    <table class="table table-inverse" id="selectedOrderInfoTable">
+                        <thead>
+                        <tr>
+                            <th>Namn</th>
+                            <th>Antal</th>
+                            <th>Pris (/st)</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat="row in orderArray">
+                        <tr>
+                            <th>{{row.name}}</th>
+                            <td>{{row.quantity}}</td>
+                            <th>{{row.price}}</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <tr>
+                        <th scope="row" colspan="3">Totalt :</th>
+                        <td><p>{{totSum}} :-</p></td>
+                    </tr>
+                </div>
             </div>
-
-
         </div>
-
     </div>
+
 </div>
 
 
 
 
-    </div></div>

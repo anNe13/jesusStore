@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="jumbotron">
+    <div class="container-fluid">
 
-</body>
-</html>
+        <form name="f" novalidate>
+            <div class="form-group row">
+
+                <div class="col-md-6 form-group"><label>Förnamn</label>
+                    <input ng-class="{'has-error': f.firstName.$invalid && !f.firstName.$pristine}" name="firstName"
+                           type="text" value="" class="form-control" ng-model="userVal.firstName" placeholder="Förnamn"
+                           required></div>
+
+                <div class="col-md-6 form-group"><label>Efternamn</label>
+                    <input ng-class="{'has-error': f.lastName.$invalid && !f.lastName.$pristine}" name="lastName"
+                           type="text" class="form-control" ng-model="userVal.lastName" placeholder="Efternamn"
+                           required></div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Adress</label>
+                    <input ng-class="{'has-error': f.address.$invalid && !f.address.$pristine}" name="address"
+                           type="text" class="form-control" ng-model="userVal.address" placeholder="Address" required>
+                </div>
+                <div class="col-md-6 form-group"><label>Postnummer</label>
+                    <input ng-class="{'has-error': f.postalCode.$invalid && !f.postalCode.$pristine}" name="postalCode"
+                           type="text" class="form-control" ng-model="userVal.postalCode" placeholder="Postnummer"
+                           required></div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Ort</label>
+                    <input ng-class="{'has-error': f.city.$invalid && !f.city.$pristine}" name="city" type="text"
+                           class="form-control" ng-model="userVal.city" placeholder="Ort" required></div>
+                <div class="col-md-6 form-group"><label>Telefonnummer</label>
+                    <input ng-class="{'has-error': f.phone.$invalid && !f.phone.$pristine}" name="phone" type="text"
+                           class="form-control" ng-model="userVal.phone" placeholder="Telefonnummer" required></div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-6 form-group"><label>Email</label>
+                    <input ng-class="{'has-error': f.email.$invalid && !f.email.$pristine}" name="email" type="email"
+                           class="form-control" ng-model="userVal.email" placeholder="Email" required></div>
+            </div>
+
+            <p ng-show="isNotValid && f.$invalid" class="help-block">Alla fält måste fyllas i</p>
+            <button ng-click="editUser((f.$valid))" type="submit" class="btn btn-primary">Spara</button>
+
+        </form>
+
+        </form>
+    </div>
+</div>

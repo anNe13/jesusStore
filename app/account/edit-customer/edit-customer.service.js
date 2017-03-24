@@ -1,19 +1,26 @@
-angular.module("customer").factory("customerService", [ "$http", function ($http) {
+angular.module("edit").factory("editService", ["$http", "$cookieStore", function ($http, $cookieStore) {
     return {
 
-        createAccount: function(customer) {
-            return $http.post("http://nackbutik.azurewebsites.net/api/customer", customer);
+        editCustomer: function (id, editedUser) {
+            return $http.put("http://nackbutik.azurewebsites.net/api/customer/" + id, editedUser).then(function (response) {
+                var userData = $cookieStore.get("userData");
 
-        },
+                userData.firstName = editedUser.firstName;
+                userData.lastName = editedUser.lastName;
+                userData.email = editedUser.email;
+                userData.phone = editedUser.phone;
+                userData.city = editedUser.city;
+                userData.postalCode = editedUser.postalCode;
+                userData.address = editedUser.address;
 
-        login: function (user) {
+                $cookieStore.put("userData", userData);
 
-            return $http.post("http://nackbutik.azurewebsites.net/api/new-customer/login/", user).then(function (response) {
 
-                //isLoggedIn = true;
-                //customerIdAfterLogin = response.data.customerId;
+            }, function (response) {
+                console.log("Unable to update user data")
             })
 
         }
+
     };
 }]);

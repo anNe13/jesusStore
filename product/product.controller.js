@@ -6,7 +6,6 @@ angular.module("product").controller("productController",
 
     $scope.productClicked = function (id){
         $location.path("/product/" + id);
-        console.log("nu: "  + id);
     };
 
         productService.getProducts().then(function (response) {

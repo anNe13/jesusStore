@@ -2,35 +2,15 @@ body{
     background-image: url("bg2.jpg");
     background-attachment: fixed;
 }
-.navbar-custom {
-    background-color: whitesmoke;
-    border-color: black;
-    background-repeat: no-repeat;
-    height: 40px;
-}
-.dropdown-menu li:hover {
-    cursor: pointer;
-}
-.nav-item {
-    font-family: "Verdana";
-    font-size: medium;
-    color: red;
-}
-.navbar-brand > img{
-    width: auto;
-    height: 30px;
 
 
-}
-html, body { height: 100%; }
-.navmenu {
-    border-radius: 10px;
-    border-color: #0f0f0f;
-    background-color: whitesmoke;
+html, body {
+    height: 100%;  }
 
-}
+.nav > li{
+    padding-right:  7%;
+    padding-left: 7%;
 
-.col-md-3 {
 }
 #productListInfo{
     background-color: palevioletred;
@@ -38,9 +18,6 @@ html, body { height: 100%; }
     font-family: "Calibri";
     font-size: large;
     border-radius: 0px 0px 5px 5px ;
-
-
-
 
   height: 100px;
     width: 90%;
@@ -55,6 +32,7 @@ html, body { height: 100%; }
     margin-bottom: 10px;
     bottom: 5px;
     position: absolute;
+    margin-left: 30px;
 
 }
 
@@ -157,14 +135,15 @@ html, body { height: 100%; }
 
 .crazy-page {
     background:url("bg3.jpg");
+    position: absolute;
     float: left;
     padding: 100px 0;
     width: 100%;
-    color:#fff !important;
-    min-height:841px;
+
+    min-height: 100%;
     -webkit-animation: backgroundScroll 35s linear infinite;
     animation: backgroundScroll 35s linear infinite;
-    background-size:130% 100%;
+    background-size:150% 120%;
     background-position:top;
     background-attachment:fixed;
 
@@ -179,4 +158,30 @@ html, body { height: 100%; }
 
 
 
+}
+
+.selected {
+    background-color: #f5e79e;
+
+}
+
+.has-error {
+
+    border-color: red;
+}
+
+#increasItemButton .info-text{
+    visibility: hidden;
+}
+#increasItemButton:hover .info-text{
+    visibility: visible;
+}
+.cart-table{
+    table-layout:fixed;
+}
+
+
+
+.badge {
+  background-color: red;
 }
