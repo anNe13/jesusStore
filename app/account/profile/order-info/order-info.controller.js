@@ -17,14 +17,11 @@ angular.module("profile").controller("orderInfoController", [
 
 
 
-        addToTotal = function (x) {
-            $scope.myTotal += x;
-            //console.log(myTotal);
 
-        };
 
 
         getSumAllOrders = function () {
+        $scope.myTotal = 0;
             var totOfRow = 0;
             var eachOrder = [];
             var orders = [];
@@ -43,7 +40,7 @@ angular.module("profile").controller("orderInfoController", [
                                     product.price = response.data.price;
 
                                     totOfRow += (parseInt(product.price)) * (parseInt(product.quantity));
-                                    addToTotal(totOfRow);
+
                                     $scope.myTotal += totOfRow;
 
 
@@ -54,6 +51,7 @@ angular.module("profile").controller("orderInfoController", [
                         });
                 })
             })
+
         };
 
     getSumAllOrders();
