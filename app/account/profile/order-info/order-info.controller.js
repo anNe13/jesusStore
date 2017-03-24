@@ -57,7 +57,7 @@ angular.module("profile").controller("orderInfoController", [
             })
         };
 
-        //  getSumAllOrders(); BLIR EJ RÄTT ÄNDÅ
+          getSumAllOrders();
 
         $scope.moreInfo = function (id, index) {
             $scope.selectedRow = index;
